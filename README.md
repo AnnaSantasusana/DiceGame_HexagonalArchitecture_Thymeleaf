@@ -10,43 +10,43 @@ Este proyecto implementa un juego de dados en el que se lanzan dos dados, y la p
 
 ### Características principales
 
-- Registro de Jugadores:
+- **Registro de Jugadores:**
 
     - Los usuarios deben registrarse con un nombre único. Se asigna a cada jugador un identificador numérico único y una fecha de registro.
     
     - Opcionalmente, los jugadores pueden registrarse de manera anónima sin proporcionar un nombre.
 
-        ![Registro](images_readme/register.png)
+        ![Registro](images_readme/register.png | width=300)
 
-- Iniciar sesión:
+- **Iniciar sesión:**
 
     - Una vez registrado, introdce tu correo electrónico y contraseña en los campos correspondientes.
 
-        ![Iniciar sesión](images_readme/login.png)
+        ![Iniciar sesión](images_readme/login.png | width=300)
 
-- Historial de Tiradas:
+- **Historial de Tiradas:**
 
     - Cada jugador puede visualizar un historial de todas sus tiradas, con detalles como el valor de cada dado y el resultado de la partida (ganada o perdida).
 
-        ![Iniciar sesión](images_readme/dashboard.png)
+        ![Iniciar sesión](images_readme/dashboard.png | width=300)
 
-- Gestión de Datos:
+- **Gestión de Datos:**
 
     - No es posible eliminar tiradas individuales, pero se puede borrar todo el historial de tiradas de un jugador.
 
     - Se puede modificar el nombre registrado.
 
-        ![Iniciar sesión](images_readme/edit.png)
+        ![Iniciar sesión](images_readme/edit.png | width=300)
 
- - Comparar resultados:   
+ - **Comparar resultados:**   
     
     - Se proporciona una interfaz para listar todos los jugadores, con sus respectivos porcentajes de éxito y el porcentaje de éxito promedio del sistema. También se muestra al mejor y al peor jugador entre todos los que han jugado.
 
-        ![Iniciar sesión](images_readme/statistics.png)
+        ![Iniciar sesión](images_readme/statistics.png | width=300)
 
 ## Acceder a la aplicación
 
 La aplicación está disponible en la dirección pública de la instancia de EC2. Puede acceder a ella ingresando esta dirección:
 
-    http://35.180.18.20
+http://35.180.18.20
 
