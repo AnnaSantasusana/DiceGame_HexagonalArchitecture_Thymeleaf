@@ -1,0 +1,137 @@
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            background-color: #000000;
+            color: white;
+            height: 60px;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+        }
+
+        .nav-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-button i {
+            margin-right: 5px;
+        }
+
+        .section-100 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .section-50 {
+            flex: 1;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+          }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr.won-row {
+            font-weight: bold;
+        }
+
+        .players-subsection {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+        }
+
+        .players-subsection h2 {
+            margin-top: 0;
+        }
+
+        .players-subsection img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            max-height: 100px;
+        }
+
+        .players-subsection p {
+            color: #4caf50;
+            font-weight: bold;
+         }
+
+        @media (max-width: 800px) {
+          .background-image {
+            width: 60%;
+          }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .section-50 {
+                flex: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 450px) {
+            .nav-buttons {
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-button {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            .nav-button span {
+                display: none;
+            }
+        }

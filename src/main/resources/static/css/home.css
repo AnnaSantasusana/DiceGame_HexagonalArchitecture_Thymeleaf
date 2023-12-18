@@ -1,0 +1,112 @@
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    nav {
+      background-color: #000000;
+      color: white;
+      height: 60px;
+      padding: 5px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .home-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70vh;
+      width: 80%;
+      overflow: hidden;
+      margin: 5px auto 0;
+      height: 100vh;
+      transition: margin 0.25s, height 0.25s;
+    }
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .center-box {
+      width: 40%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 20px;
+      background-color: white;
+      transition: margin 0.25s;
+      border: 3px solid black;
+      border-radius: 15px;
+    }
+
+    button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 60%;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      transition: margin 0.25s, width 0.25s;
+    }
+
+    button.register {
+          background-color: #4caf50;
+          color: white;
+        }
+
+        button.login {
+          background-color: #3498db;
+          color: white;
+        }
+
+    @media (max-width: 768px) {
+      body {
+        margin-top: 0;
+      }
+
+      .home-container {
+        margin-top: 0;
+      }
+
+      .center-box {
+        width: 80%;
+      }
+
+      button {
+        width: 60%;
+      }
+
+    }
+
+    @media (min-width: 769px) {
+      button {
+        width: 40%;
+      }
+    }
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your space</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="updated-integrity-value-here" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/scripts.js"></script>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="/images/diceGame.jpeg" alt="Logo"/>
+  </div>
+  <div class="nav-buttons">
+    <!-- Profile button comes first -->
+    <div class="nav-dropdown">
+      <button class="nav-button"><i class="fas fa-bars"></i><span>Menu</span></button>
+      <div class="dropdown-content">
+        <!-- Option 1 as a link with smaller icon and text -->
+        <a href="#" onclick="submitForm('deleteForm')">
+          <i class="fas fa-trash-alt" style="font-size: smaller;"></i>
+          <span style="font-size: smaller;">Delete games</span>
+        </a>
+
+        <!-- Option 2 as a link with icon and popup -->
+        <a href="#" onclick="openChangeNamePopup()">
+          <i class="fas fa-user-edit" style="font-size: smaller;"></i>
+          <span style="font-size: smaller;">Change name</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hidden form for Option 1 -->
+    <form id="deleteForm" th:action="@{'/api/players/delete/' + ${loggedInPlayerId}}" method="post">
+      <input type="hidden" name="_method" value="delete" />
+    </form>
+
+    <!-- Popup for Option 2 -->
+    <div id="changeNamePopup" class="popup">
+      <div class="popup-title">Change name</div>
+      <form class="profile-form" th:action="@{'/api/players/' + ${loggedInPlayerId}}" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <span th:if="${param.duplicatedName}" class="error-message">Duplicated name</span>
+        <input class="name-input" type="text" name="name" placeholder="New name" required/>
+        <div>
+          <!-- Botón con el icono de verificación verde -->
+          <button class="apply-btn" type="submit" onclick="applyChange()">
+            <i class="fa-solid fa-check"></i>
+          </button>
+          <!-- Botón de cancelar -->
+          <button class="cancel-btn" type="button" onclick="closePopup('changeNamePopup')">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <button class="nav-button" onclick="window.location.href='/api/players/statistics'">
+      <i class="fas fa-chart-bar"></i><span>Players Stats</span>
+    </button>
+
+    <button class="nav-button" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+    </button>
+
+  </div> <!-- Agregado el cierre del div -->
+  <script src="/js/scripts.js"></script>
+</nav>
+
+<div class="section-game">
+  <h1>Welcome, <span th:text="${loggedInPlayerName}"></span>!</h1>
+  <p th:if="${loggedInPlayerId != null}" th:text="'Your ID: ' + ${loggedInPlayerId}" hidden></p>
+  <p th:if="${token != null}" th:text="'Your Token: ' + ${token}" hidden></p>
+
+  <!-- Agregar botón de Jugar -->
+  <form th:action="@{/api/players/createGame}" method="post">
+    <input type="hidden" name="playerId" th:value="${loggedInPlayerId}" />
+    <button type="submit" class="button-play">
+      <i class="fas fa-dice"></i> PLAY
+    </button>
+  </form>
+
+  <!-- Mostrar resultado del juego -->
+  <div th:if="${gameResult}" class="result">
+    <p>Dice 1: <span th:text="${dice1}"></span></p>
+    <p>Dice 2: <span th:text="${dice2}"></span></p>
+    <p>Game Result: <span th:text="${gameResult}"></span></p>
+  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Game</th>
+      <th>Dice 1</th>
+      <th>Dice 2</th>
+      <th>Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="game, iterStat : ${playerGames}" th:class="${game.result == 'Won' ? 'won-row' : ''}">
+      <td th:text="${iterStat.count}"></td>
+      <td th:text="${game.dice1}"></td>
+      <td th:text="${game.dice2}"></td>
+      <td th:text="${game.result}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

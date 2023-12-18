@@ -1,0 +1,229 @@
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #000000;
+      color: white;
+      height: 60px;
+      padding: 5px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-buttons {
+      display: flex;
+    }
+
+    .nav-button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-button i {
+      margin-right: 5px;
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .section-game {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr.won-row {
+      font-weight: bold;
+    }
+
+    .popup {
+      width: 80%;
+      max-width: 400px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .popup-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 30px;
+    }
+
+    .name-input {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .apply-btn,
+    .cancel-btn {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      padding: 10px 16px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: none;
+      width: 50px;
+    }
+
+    .cancel-btn {
+      background-color: #f44336;
+    }
+
+    .fa-check,
+    .fa-times {
+      font-size: 1.2em;
+    }
+
+    .error-message {
+        color: #d9534f;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .button-play {
+      background-color: #4caf50;
+      color: white;
+      border: 2px solid black;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      padding: 16px 32px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 1024px) {
+        .section-game {
+            flex: 3.5;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .section-game {
+            flex: 2;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .popup {
+            width: 90%;
+        }
+    }
+
+    @media only screen and (max-width: 450px) {
+        .nav-buttons {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-button {
+            width: 78%;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .nav-button span {
+            display: none;
+        }
+
+        .nav-button i {
+            margin: 0 auto;
+            display: block;
+        }
+
+        table {
+            font-size: 12px;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+    }
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Player Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="updated-integrity-value-here" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="/images/diceGame.jpeg" alt="Logo"/>
+  </div>
+  <div class="nav-buttons">
+
+    <button class="nav-button" onclick="window.location.href='http://localhost:8082'">
+      <i class="fas fa-home"></i>Home
+    </button>
+  </div>
+</nav>
+<div class="center-container">
+  <section class="center">
+
+          <form th:action="@{/api/players/login}" method="post" th:object="${authRequest}">
+            <h1>LOGIN</h1>
+
+            <span th:if="${param.incorrectCredentials}" class="error-message">Incorrect credentials</span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required="required" placeholder="Enter your email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" required="required" minlength="6"
+                   placeholder="Enter your password">
+
+            <button type="submit">Login</button>
+          </form>
+  </section>
+</div>
+</body>
+</html>

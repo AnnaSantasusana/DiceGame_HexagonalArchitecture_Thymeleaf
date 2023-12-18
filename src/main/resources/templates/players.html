@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All players</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="updated-integrity-value-here" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/players.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="/images/diceGame.jpeg" alt="Logo"/>
+  </div>
+  <div class="nav-buttons">
+    <button class="nav-button" onclick="window.location.href='/api/players/dashboard'">
+      <i class="fas fa-dice"></i><span>Your Games</span>
+    </button>
+
+    <button class="nav-button" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+    </button>
+  </div>
+  <script src="/js/scripts.js"></script>
+</nav>
+
+<div class="section-100">
+  <div class="section-50" th:if="${not #lists.isEmpty(players)}">
+    <table>
+      <thead>
+      <tr>
+        <th>Player name</th>
+        <th>Success rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="player : ${players}">
+        <td th:text="${player.name}"></td>
+        <td th:text="${player.successRate != 'No played yet' ? #strings.concat(player.successRate, ' %') : player.successRate}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-50" th:if="${#lists.isEmpty(players)}">
+    <p>No players available</p>
+  </div>
+
+  <div class="section-50" th:if="${not #lists.isEmpty(players)}">
+    <div class="players-subsection">
+      <h2>Best player</h2>
+      <p th:text="${bestPlayer.name}"></p>
+      <img src="/images/cup_dice_game.png" alt="Cup Image">
+    </div>
+    <div class="players-subsection">
+      <h2>Worst player</h2>
+      <p th:text="${worstPlayer.name}"></p>
+      <img src="/images/Dice_crying.png" alt="Sad Dice Image">
+    </div>
+    <div class="players-subsection">
+      <h2>Players average success rate</h2>
+      <p th:text="${averageSuccessRate} + ' %'"></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
