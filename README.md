@@ -44,9 +44,4 @@ Este proyecto implementa un juego de dados en el que se lanzan dos dados, y la p
 
         ![Iniciar sesión](images_readme/statistics.png)
 
-## Acceder a la aplicación
-
-La aplicación está disponible en la dirección pública de la instancia de EC2. Puede acceder a ella ingresando esta dirección:
-
-http://35.180.18.20
 
